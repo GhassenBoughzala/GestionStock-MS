@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="discovery-server/.mvn/wrapper"/>
+	<classpathentry kind="src" path="discovery-server/src/main/java"/>
+	<classpathentry kind="src" path="discovery-server/src/test/java"/>
+	<classpathentry kind="src" path="Facture-MS/.mvn/wrapper"/>
+	<classpathentry kind="src" path="Facture-MS/src/main/java"/>
+	<classpathentry kind="src" path="Facture-MS/src/test/java"/>
+	<classpathentry kind="lib" path="discovery-server/target/discovery-service-0.0.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="Facture-MS/target/candidates-service-twin4-0.0.1-SNAPSHOT.jar"/>
+	<classpathentry kind="output" path="Facture-MS/target/classes"/>
+</classpath>
