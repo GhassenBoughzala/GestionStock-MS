@@ -1,10 +1,10 @@
-package com.esprit.discovery;
+package com.esprit.candidates;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DiscoveryServer5twin4ApplicationTests {
+class CandidateMs5twin4ApplicationTests {
 
 	@Test
 	void contextLoads() {
