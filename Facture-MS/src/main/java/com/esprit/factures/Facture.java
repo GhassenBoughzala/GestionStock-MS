@@ -1,4 +1,4 @@
-package com.esprit.candidates;
+package com.esprit.factures;
 
 import java.io.Serializable;
 
@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Candidat implements Serializable {
+public class Facture implements Serializable {
 	
 	/**
 	 * 
@@ -43,11 +43,11 @@ public class Candidat implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Candidat() {
+	public Facture() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Candidat(String nom, String prenom, String email) {
+	public Facture(String nom, String prenom, String email) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;

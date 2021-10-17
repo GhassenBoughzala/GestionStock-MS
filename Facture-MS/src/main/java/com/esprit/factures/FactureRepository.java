@@ -1,4 +1,4 @@
-package com.esprit.candidates;
+package com.esprit.factures;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -6,9 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-public interface CandidatRepository extends JpaRepository<Candidat, Integer>{
+public interface FactureRepository extends JpaRepository<Facture, Integer>{
 	
-	@Query("select c from Candidat c where c.nom like :nom")
-	public Page<Candidat> candidatByNom(@Param("nom") String n, Pageable pageable);
+	@Query("select c from Facture c where c.nom like :nom")
+	public Page<Facture> factureByNom(@Param("nom") String n, Pageable pageable);
 
 }

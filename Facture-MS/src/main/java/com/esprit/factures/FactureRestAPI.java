@@ -1,10 +1,10 @@
-package com.esprit.candidates;
+package com.esprit.factures;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class CandidatRestAPI {
+public class FactureRestAPI {
 	private String title ="Hello candidate service";
 	
 	@RequestMapping("/hello")
