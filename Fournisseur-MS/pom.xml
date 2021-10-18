@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.services.candidates</groupId>
-	<artifactId>Facture-MS</artifactId>
+	<artifactId>Fournisseur-MS</artifactId>
 	<version>1.0.1-SNAPSHOT</version>
-	<name>Facture-MS</name>
+	<name>Fournisseur-MS</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>

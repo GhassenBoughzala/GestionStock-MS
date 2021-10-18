@@ -1,4 +1,4 @@
-package com.esprit.factures;
+package com.esprit.fournisseur;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
