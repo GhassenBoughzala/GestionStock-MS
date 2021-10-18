@@ -16,13 +16,15 @@ public class FournisseurMsApplication {
 	}
 	
 	@Autowired
-	private FactureRepository repository;
-	
+	private FournisseurRepository repository;
 	@Bean
 	ApplicationRunner init() {
 		return (args) -> {
 			// save
-			
+			repository.save(new Fournisseur("Test", "Test", "ma@esprit.tn","x","r"));
+			repository.save(new Fournisseur("t", "t", "tunisa@esprit.tn","t","t"));
+			// fetch
+			repository.findAll().forEach(System.out::println);
 
 		};
 	}

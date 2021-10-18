@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import com.esprit.fournisseur.Fournisseur;
 
 @Repository
-public interface FactureRepository extends JpaRepository<Fournisseur, Long>{
+public interface FournisseurRepository extends JpaRepository<Fournisseur, Long>{
 	
 }

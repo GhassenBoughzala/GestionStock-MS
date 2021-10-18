@@ -4,13 +4,21 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
 public class Fournisseur implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long idFournisseur;
 
 	private String nom;
@@ -26,6 +34,14 @@ public class Fournisseur implements Serializable {
 	@OneToMany(mappedBy="fournisseur")
 	private List<CommandeFournisseur> cmdFournisseur;
 	
+	public Fournisseur(String nom, String prenom, String adresse, String photo, String mail) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.adresse = adresse;
+		this.photo = photo;
+		this.mail = mail;
+	}
 
 	public Fournisseur() {
 
