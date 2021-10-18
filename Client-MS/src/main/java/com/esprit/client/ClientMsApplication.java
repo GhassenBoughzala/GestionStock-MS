@@ -1,4 +1,4 @@
-package com.esprit.factures;
+package com.esprit.client;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationRunner;
@@ -9,22 +9,21 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 @EnableEurekaClient
-public class FactureMsApplication {
+public class ClientMsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FactureMsApplication.class, args);
+		SpringApplication.run(ClientMsApplication.class, args);
 	}
 	
 	@Autowired
-	private FactureRepository repository;
-	
+	private ClientRepository repository;
 	@Bean
 	ApplicationRunner init() {
 		return (args) -> {
 			// save
-			repository.save(new Facture("Mariem", "Ch", "ma@esprit.tn"));
-			repository.save(new Facture("Sarra", "ab", "sa@esprit.tn"));
-			repository.save(new Facture("Mohamed", "ba", "mo@esprit.tn"));
+			repository.save(new Client("entreprise", "56591671", "ma@esprit.tn","Vermeg","admin"));
+			repository.save(new Client("entreprise", "34345567", "tunisa@esprit.tn","Tunisair","admin"));
+			repository.save(new Client("entreprise", "27878909", "france@esprit.tn","talvza","admin"));
 			// fetch
 			repository.findAll().forEach(System.out::println);
 

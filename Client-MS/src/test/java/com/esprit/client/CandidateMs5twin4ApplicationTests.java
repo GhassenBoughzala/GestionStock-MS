@@ -1,4 +1,4 @@
-package com.esprit.factures;
+package com.esprit.client;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
