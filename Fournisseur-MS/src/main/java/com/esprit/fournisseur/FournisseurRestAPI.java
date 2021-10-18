@@ -50,8 +50,7 @@ public class FournisseurRestAPI {
 		return repository.save(Fournisseur);
 	}
 	
-	//@DeleteMapping("/Fournisseurs/{id}")
-	@RequestMapping(method=RequestMethod.DELETE, value="/Fournisseurs/{id}")
+	@DeleteMapping("/Fournisseurs/{id}")
 	public Map<String, Boolean> deleteFournisseur(@PathVariable(value = "id") Long FournisseurId)
 		throws ResourceNotFoundException{
 		Fournisseur Fournisseur = repository.findById(FournisseurId)
@@ -61,6 +60,7 @@ public class FournisseurRestAPI {
 		response.put("deleted", Boolean.TRUE);
 		return response;
 	}
+
 	
 	//@DeleteMapping("/Fournisseurs/delete")
 	@RequestMapping(method=RequestMethod.DELETE, value="/Fournisseurs/delete")
@@ -85,9 +85,7 @@ public class FournisseurRestAPI {
 			four.setAdresse(Fournisseur.getAdresse());
 			four.setPhoto(Fournisseur.getPhoto());
 			four.setMail(Fournisseur.getMail());
-			
-	
-			
+						
 			return new ResponseEntity<>(repository.save(Fournisseur), HttpStatus.OK);	
 	
 	}else {
