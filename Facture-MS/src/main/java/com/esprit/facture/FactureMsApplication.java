@@ -1,4 +1,4 @@
-package com.esprit.factures;
+package com.esprit.facture;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationRunner;
@@ -20,11 +20,10 @@ public class FactureMsApplication {
 	
 	@Bean
 	ApplicationRunner init() {
-		return (args) -> {
+		return (args) -> { 
 			// save
 			repository.save(new Facture("Mariem", "Ch", "ma@esprit.tn"));
-			repository.save(new Facture("Sarra", "ab", "sa@esprit.tn"));
-			repository.save(new Facture("Mohamed", "ba", "mo@esprit.tn"));
+			
 			// fetch
 			repository.findAll().forEach(System.out::println);
 
