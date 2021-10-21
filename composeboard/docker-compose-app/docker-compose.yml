@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  discovery:
+    build:  ../../discovery-server
+    ports:
+      - "8761:8761"
+    image: "discovery-server"
+  fournisseur-ms:
+    build: ../../Fournisseur-MS
+    environment: 
+      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
+    ports:
+      - "8800:8800"
+    image: "fournisseur-service"
