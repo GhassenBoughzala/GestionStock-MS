@@ -25,3 +25,10 @@ services:
     ports:
       - "8888:8888"
     image: "config-server"  
+  gateway:
+    build: ../../zuul-server
+    environment: 
+      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
+    ports:
+      - "8762:8762"
+    image: "gateway-server"
