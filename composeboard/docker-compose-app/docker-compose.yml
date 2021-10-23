@@ -6,7 +6,7 @@ services:
       - "8761:8761"
     image: "discovery-server"
   facture-ms:
-    build: ../../Facture-MS
+    build: ../../Factures-MS
     environment: 
       - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
     ports:
