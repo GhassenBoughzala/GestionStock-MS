@@ -13,7 +13,7 @@ services:
       - "8800:8800"
     image: "fournisseur-service"
   facture-ms:
-    build: ../../Facture-MS
+    build: ../../Factures-MS
     environment: 
       - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
     ports:
