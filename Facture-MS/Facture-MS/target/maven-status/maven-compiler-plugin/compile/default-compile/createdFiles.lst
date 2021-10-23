@@ -1,0 +1,5 @@
+com\esprit\facture\FactureMsApplication.class
+com\esprit\facture\Facture.class
+com\esprit\facture\FactureRestAPI.class
+com\esprit\facture\ResourceNotFoundException.class
+com\esprit\facture\FactureRepository.class
