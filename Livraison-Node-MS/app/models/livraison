@@ -1,0 +1,14 @@
+const mongoose = require('mongoose')
+
+const LivraisonSchema = new mongoose.Schema({
+  livraisonNum: Number,
+  ProductRef: Number,
+  TypeLivraison: String,
+  DateArrive: Date,
+  DateSortie: Date,
+  status: String
+})
+
+const livraison = mongoose.model('livraison', LivraisonSchema)
+
+module.exports = livraison
