@@ -1,6 +1,7 @@
 const Eureka = require('eureka-js-client').Eureka;
-const eurekaHost = (process.env.EUREKA_CLIENT_SERVICEURL_DEFAULTZONE || '127.0.0.1');
+const eurekaHost = (process.env.EUREKA_CLIENT_SERVICEURL_DEFAULTZONE || 'discovery');
 const eurekaPort = 8761;
+const hostPort = 4401;
 const hostName = (process.env.HOSTNAME || 'localhost:4401')
 const ipAddr = '172.0.0.1';
 
@@ -9,6 +10,7 @@ exports.registerWithEureka = function(appName, PORT) {
     instance: {
       app: appName,
       hostName: hostName,
+      hostPort : hostPort,
       ipAddr: ipAddr,
       port: {
         '$': PORT,
@@ -24,7 +26,7 @@ exports.registerWithEureka = function(appName, PORT) {
     eureka: {
       host: eurekaHost,
       port: eurekaPort,
-      servicePath: '/eureka/apps/',
+      servicePath: '/eureka/',
       maxRetries: 10,
       requestRetryDelay: 2000,
     },
