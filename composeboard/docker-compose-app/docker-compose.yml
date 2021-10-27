@@ -19,6 +19,13 @@ services:
     ports:
       - "8880:8880"
     image: "facture-service"
+  client-ms:
+    build: ../../Client-MS
+    environment: 
+      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
+    ports:
+      - "8802:8802"
+    image: "client-service"
   categorie-ms:
     build: ../../Categorie_MS
     environment: 
@@ -33,6 +40,8 @@ services:
     ports:
       - "4401:4401"
     image: "livraison-service"
+    depends_on:
+      - discovery
   config:
     build: ../../config-server
     command: --spring.profiles.active=native --spring.cloud.config.server.native.searchLocations=/config
