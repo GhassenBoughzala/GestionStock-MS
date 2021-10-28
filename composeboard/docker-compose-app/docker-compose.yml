@@ -1,0 +1,85 @@
+version: "3.9"
+services:
+  discovery:
+    build:  ../../discovery-server
+    ports:
+      - "8761:8761"
+    image: "discovery-server"
+
+  fournisseur-ms:
+    build: ../../Fournisseur-MS
+    environment: 
+      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
+    ports:
+      - "8800:8800"
+    image: "fournisseur-service"
+
+  facture-ms:
+    build: ../../Factures-MS
+    environment: 
+      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
+    ports:
+      - "8880:8880"
+    image: "facture-service"
+    depends_on:
+      - fournisseur-ms 
+
+  client-ms:
+    build: ../../Client-MS
+    environment: 
+      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
+    ports:
+      - "8802:8802"
+    image: "client-service"
+    depends_on:
+      - facture-ms  
+
+  article-ms:
+    build: ../../Article-MS
+    environment: 
+      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
+    ports:
+      - "8803:8803"
+    image: "article-service"
+    depends_on:
+      - client-ms 
+
+  categorie-ms:
+    build: ../../Categorie_MS
+    environment: 
+      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
+    ports:
+      - "8801:8801"
+    image: "categorie-service"
+    depends_on:
+      - article-ms
+
+  config:
+    build: ../../config-server
+    command: --spring.profiles.active=native --spring.cloud.config.server.native.searchLocations=/config
+    volumes:
+      - type: bind
+        source: ./src/main/resources/centralRepo
+        target: /config
+    environment: 
+      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
+      - spring.profiles.active=native
+    ports:
+      - "8888:8888"
+    image: "config-server" 
+     
+  gateway:
+    build: ../../zuul-server
+    environment: 
+      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
+    ports:
+      - "8762:8762"
+    image: "gateway-server"
+
+    #http://localhost:8762/categorie-service
+    #http://localhost:8762/fournisseur-service
+    #http://localhost:8762/factures-service
+    #http://localhost:8762/client-service
+    #http://localhost:8762/article-service
+    #http://localhost:8888/config-server/default
+  
