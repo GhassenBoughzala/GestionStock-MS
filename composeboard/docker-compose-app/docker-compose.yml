@@ -5,6 +5,7 @@ services:
     ports:
       - "8761:8761"
     image: "discovery-server"
+
   fournisseur-ms:
     build: ../../Fournisseur-MS
     environment: 
@@ -12,6 +13,7 @@ services:
     ports:
       - "8800:8800"
     image: "fournisseur-service"
+
   facture-ms:
     build: ../../Factures-MS
     environment: 
@@ -19,6 +21,9 @@ services:
     ports:
       - "8880:8880"
     image: "facture-service"
+    depends_on:
+      - fournisseur-ms 
+
   client-ms:
     build: ../../Client-MS
     environment: 
@@ -26,6 +31,9 @@ services:
     ports:
       - "8802:8802"
     image: "client-service"
+    depends_on:
+      - facture-ms  
+
   article-ms:
     build: ../../Article-MS
     environment: 
@@ -33,6 +41,9 @@ services:
     ports:
       - "8803:8803"
     image: "article-service"
+    depends_on:
+      - client-ms 
+
   categorie-ms:
     build: ../../Categorie_MS
     environment: 
@@ -40,15 +51,9 @@ services:
     ports:
       - "8801:8801"
     image: "categorie-service"
-  livraison-ms:
-    build: ../../Livraison-Node-MS
-    environment: 
-      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
-    ports:
-      - "4401:4401"
-    image: "livraison-service"
     depends_on:
-      - discovery
+      - article-ms
+
   config:
     build: ../../config-server
     command: --spring.profiles.active=native --spring.cloud.config.server.native.searchLocations=/config
@@ -61,7 +66,8 @@ services:
       - spring.profiles.active=native
     ports:
       - "8888:8888"
-    image: "config-server"  
+    image: "config-server" 
+     
   gateway:
     build: ../../zuul-server
     environment: 
@@ -69,4 +75,11 @@ services:
     ports:
       - "8762:8762"
     image: "gateway-server"
+
+    #http://localhost:8762/categorie-service
+    #http://localhost:8762/fournisseur-service
+    #http://localhost:8762/factures-service
+    #http://localhost:8762/client-service
+    #http://localhost:8762/article-service
+    #http://localhost:8888/config-server/default
   
