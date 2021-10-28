@@ -1,5 +1,8 @@
 GestionStock-MS
 
+What's inside?
+--------------
+
 Les microservices:
   - Fournisseurs-ms : Springboot & H2
   - Factures-ms : Springboot & H2
@@ -22,3 +25,4 @@ Taches réalisées :
 
 ![Capture](https://user-images.githubusercontent.com/49615834/139246847-25319040-cfbf-4d55-b5f1-e84147512f14.JPG)
 
+![Capture d’écran (104)](https://user-images.githubusercontent.com/49615834/139250764-78af4f76-648a-49f0-ae12-4f1f9aaa26f7.png)
